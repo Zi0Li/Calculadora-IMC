@@ -24,32 +24,52 @@ class _HomeState extends State<Home> {
         actions: [IconButton(onPressed: () {}, icon: Icon(Icons.refresh))],
       ),
       backgroundColor: Color(0xfff3f3f3),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: const [
-          Icon(
-            Icons.person,
-            size: 120,
-            color: Colors.deepPurpleAccent,
-          ),
-          TextField(
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-                labelText: 'Seu peso(kg):',
-                labelStyle:
-                    TextStyle(fontSize: 20, color: Colors.deepPurpleAccent)),
-            style: TextStyle(fontSize: 25, color: Colors.purpleAccent),
-          ),
-          TextField(
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-                labelText: 'Altura(cm):',
-                labelStyle:
-                TextStyle(fontSize: 20, color: Colors.deepPurpleAccent)),
-            style: TextStyle(fontSize: 25, color: Colors.purpleAccent),
-          )
-        ],
+      body: SingleChildScrollView(
+        padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Icon(
+              Icons.person,
+              size: 120,
+              color: Colors.deepPurpleAccent,
+            ),
+            TextField(
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                  labelText: 'Seu peso(kg):',
+                  labelStyle:
+                      TextStyle(fontSize: 20, color: Colors.deepPurpleAccent)),
+              style: TextStyle(fontSize: 25, color: Colors.purpleAccent),
+            ),
+            TextField(
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                  labelText: 'Altura(cm):',
+                  labelStyle:
+                      TextStyle(fontSize: 20, color: Colors.deepPurpleAccent)),
+              style: TextStyle(fontSize: 25, color: Colors.purpleAccent),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: Container(
+                height: 50,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(primary: Colors.deepPurpleAccent),
+                  onPressed: calcularIMC,
+                  child: Text(
+                    'Calcular',
+                    style: TextStyle(fontSize: 20,),
+                  ),
+                ),
+              ),
+            ),
+            Text('Info', style: TextStyle(fontSize: 35, color: Colors.deepPurple), textAlign: TextAlign.center,)
+          ],
+        ),
       ),
     );
   }
 }
+
+void calcularIMC() {}
